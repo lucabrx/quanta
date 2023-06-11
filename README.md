@@ -71,3 +71,15 @@ create policy "Users can update their own profiles."
 - For more about Managing User Data [here](https://supabase.com/docs/guides/auth/managing-user-data)
 #### Accessing User Metadata
 
+## SvelteKit Files and Foldres explanation
+- Diagram how does local objects works in sveltekit
+![Alt text](markdown_data/local-object.png)
+
+### hooks.server.ts
+- For more about hooks [here](https://kit.svelte.dev/docs/hooks) 
+- to understand better check the diagram above, but in short hooks.server.ts is used to create local object for every request and we have everything we passed on the locals object 
+### app.d.ts 
+- types for Locals supabase client and session 
+- trough PageData we are passing session to clientside application
+### +layout.server.ts
+- we are passing session to every page trough layout.server.ts
