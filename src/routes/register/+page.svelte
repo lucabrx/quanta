@@ -1,8 +1,9 @@
 <script lang="ts">
     import { superForm } from "sveltekit-superforms/client";
     import type { PageData } from "./$types";
-	import Button from "$lib/components/ui/Button.svelte";
+	  import Button from "$lib/components/Button.svelte";
     export let data: PageData;
+    
     const { form, errors, enhance } = superForm(data.form, {
       resetForm: true,
     });
