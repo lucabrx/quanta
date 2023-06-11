@@ -11,7 +11,7 @@ import "../app.css"
     
 </svelte:head>
 
-<div  class="min-h-screen flex flex-col justify-between items-center bg-slate-50">
+<div class="min-h-screen flex flex-col justify-between items-center bg-neutral-50">
 <Navbar />
 <div class="f-full self-stretch flex-grow">
 <slot />

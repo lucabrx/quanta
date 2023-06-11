@@ -1,6 +1,6 @@
 ## Suppabase locally via docker
-
 ### start project locally
+1. Bash command for setting up docker container 
 ```bash
 pnpm install supabase -D
 pnpx supabase init <init project>
@@ -8,5 +8,66 @@ pnpx supabase start <start project>
 pnpx supabase status -o env <get env in console>
 ````
 - in supabase/config.toml update site_url and additiona_redirect_urls to the local one
+
+2. Bash command for writing tables and migrations
 ```bash
+pnpx supabase migration new <name> [creante new sql file]
+pnpx supabase db reset <runns migrations>
+```
+## Supabase Postgres and Auth 
+### Postgres RLS(Row Level Security)
+- Even if our code is shit it will prevent from updating in database!
+- Client can talk directly to the database, but the database will only return the data that the client is allowed to see.
+- You can just think of them as adding a WHERE clause to every query.
+- If we activate RLS it will by the default prevent all access to the table, then we can add policies to allow access to the table, write and etc.
+
+1. Add security
+```postgresql
+alter table public.profiles enable row level security;
+```
+
+```postgresql
+create policy "Individuals can view their own todos."
+    on todos for select
+    using ( auth.uid() = user_id );
+```
+- would translate to this whenever a user tries to select from the todos table:
+```postgresql
+select *
+from todos
+where auth.uid() = todos.user_id; -- Policy is implicitly added.
+```
+#### Helper Functions 
+- Supabase provides you with a few easy functions that you can use with your policies.
+```ts
+auth.uid() // returns the ID of the user making the request
+```
+- example 
+```postgresql
+-- 1. Create table
+create table profiles (
+  id uuid references auth.users,
+  avatar_url text
+);
+
+-- 2. Enable RLS
+alter table profiles
+  enable row level security;
+
+-- 3. Create Policy
+create policy "Public profiles are viewable by everyone."
+  on profiles for select using (
+    true
+  );
+-- 4. Create Policy
+create policy "Users can update their own profiles."
+  on profiles for update using (
+    auth.uid() = id
+  );
+```
+- For more about Row Level Security visit [here](https://supabase.com/docs/guides/auth/row-level-security) 
+### Managing User Data 
+- everything how to manage userdata on login is here.
+- For more about Managing User Data [here](https://supabase.com/docs/guides/auth/managing-user-data)
+#### Accessing User Metadata
 
