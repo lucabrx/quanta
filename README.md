@@ -78,8 +78,9 @@ create policy "Users can update their own profiles."
 ### hooks.server.ts
 - For more about hooks [here](https://kit.svelte.dev/docs/hooks) 
 - to understand better check the diagram above, but in short hooks.server.ts is used to create local object for every request and we have everything we passed on the locals object 
-### app.d.ts 
-- types for Locals supabase client and session 
-- trough PageData we are passing session to clientside application
-### +layout.server.ts
-- we are passing session to every page trough layout.server.ts
+## Supabase Auth with SvelteKit 
+- [here](https://supabase.com/docs/guides/auth/auth-helpers/sveltekit)
+
+### Client Side Supabase 
+- we are passing session from layout.server to layout so we have access from that in +layout.ts
+![Alt text](markdown_data/client-side-supabase.png)
