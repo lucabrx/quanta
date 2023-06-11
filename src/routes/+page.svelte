@@ -10,11 +10,14 @@
 	</div>
 	<div class="md:py-20 md:mt-20 z-[100] px-4 lg:px-8">
 		<div class="mx-auto mb-10 max-w-2xl text-center">
+			
 			<h1 class="mb-6 text-4xl sm:text-6xl">
 				<span class="text-transparent bg-clip-text bg-gradient-to-br from-[#e64c8c] to-[#645cd8] ">
 				The Next-Gen 
 				</span> 
-				 No idea for what <span class="text-transparent bg-clip-text bg-gradient-to-br from-[#e64c8c] to-[#645cd8] ">App</span> </h1>
+				 No idea for what <span class="text-transparent bg-clip-text bg-gradient-to-br from-[#e64c8c] to-[#645cd8] ">App</span> 
+			</h1>
+
 			<p class="text-lg">
 				Revolutionize your something game with noname - the ultimate solution for something
 				and nothing but yaaa.
