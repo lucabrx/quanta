@@ -32,7 +32,7 @@ export let data: LayoutData
 </script>
 
 <svelte:head>
-    <title>My App</title>
+    <title>Quanta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
 </svelte:head>
@@ -41,14 +41,16 @@ export let data: LayoutData
     <nav class=' w-full flex justify-center items-center'> 
         <div class='max-w-7xl px-4 lg:px-8  w-full flex  justify-between items-center py-2 z-10'>
     
+        <div class="flex gap-8 justify-center items-center">
         <!-- Logo -->
-        <a href="/" class="text-xl lg:text-2xl font-bold bg-gradient-to-tl from-gray-800 to-pink-600 text-transparent bg-clip-text">Logo</a>
+        <a href="/" class="text-xl lg:text-3xl font-bold bg-gradient-to-tl from-gray-800 to-pink-600 text-transparent bg-clip-text">Quanta</a>
     
         <!-- Navigation links -->
         <div class="hidden md:flex justify-center items-center gap-4"> 
         {#each navigation as { label, href }}
            <Link {href} active={$page.url.pathname === href}>{label}</Link> 
         {/each}
+        </div>
         </div>
     
         <!-- Auth Buttons -->

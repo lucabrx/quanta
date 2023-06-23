@@ -9,18 +9,17 @@
 	class='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] element'/>
 	</div>
 	<div class="md:py-20 md:mt-20 z-[100] px-4 lg:px-8">
-		<div class="mx-auto mb-10 max-w-2xl text-center">
+		<div class="mx-auto mb-4 md:mb-10 max-w-3xl text-center">
 			
-			<h1 class="mb-6 text-4xl sm:text-6xl">
+			<h1 class="mb-3 md:mb-6 text-4xl sm:text-6xl">
 				<span class="text-transparent bg-clip-text bg-gradient-to-br from-[#e64c8c] to-[#645cd8] ">
 				The Next-Gen 
 				</span> 
-				 No idea for what <span class="text-transparent bg-clip-text bg-gradient-to-br from-[#e64c8c] to-[#645cd8] ">App</span> 
+				 day manager AI-tool <span class="text-transparent bg-clip-text bg-gradient-to-br from-[#e64c8c] to-[#645cd8] ">Quanta</span> 
 			</h1>
 
-			<p class="text-lg">
-				Revolutionize your something game with noname - the ultimate solution for something
-				and nothing but yaaa.
+			<p class="md:text-lg">
+				<span class="hidden md:inline">Supercharge your productivity with Quanta - the</span>  <span class="md:hidden inline">The</span> groundbreaking solution for optimizing your daily routine. Unlock the full potential of Quanta.
 			</p>
 		</div>
 		<div class="flex items-center justify-center gap-3">
