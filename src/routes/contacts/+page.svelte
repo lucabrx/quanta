@@ -11,9 +11,17 @@
   } from "$components/ui/table";
 	import type { PageData } from "./$types";
 	import CreateContactModal from "$components/CreateContactModal.svelte";
+	import DeleteContactModal from "$components/DeleteContactModal.svelte";
   let createContactOpen = false;
   export let data: PageData;
   let openMenu: boolean = false;
+  let deleteContactOpen = false;
+  let contactToDelete: string;
+
+  function handleContactDelete(contact_id: string) {
+    contactToDelete = contact_id;
+    deleteContactOpen = true;
+  }
   //TODO table ui needs improvement
 </script>
 
@@ -47,7 +55,7 @@
                 <Button size="sm" variant="default" href="/contacts/{contact.id}" >
                   Edit
                 </Button>
-                <Button size="sm">Delete</Button>
+                <Button size="sm" on:click={() => handleContactDelete(contact.id)}>Delete</Button>
                 <Button on:click={() => openMenu = false} size="sm" variant="default" >
                   <X class="h-4 w-4" />
                 </Button>
@@ -69,3 +77,4 @@
 
 
 <CreateContactModal bind:open={createContactOpen} data={data.createContactForm} />
+<DeleteContactModal bind:open={deleteContactOpen} contactId={contactToDelete} data={data.deleteContactForm} />
