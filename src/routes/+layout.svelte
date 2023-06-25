@@ -57,7 +57,7 @@ export let data: LayoutData
         <!-- Auth Buttons -->
         {#if session}
         <form action="/logout" method="POST">
-        <Button type="submit" variant="secondary">Logout</Button>
+        <Button type="submit" variant="default">Logout</Button>
         </form>
         {:else}
         <div class="hidden md:flex justify-center gap-2 items-center">
@@ -91,7 +91,7 @@ export let data: LayoutData
     </nav>
 
 
-<body class="f-full self-stretch flex-grow">
+<body class="w-full self-stretch flex-grow">
 <slot />
 </body>
 
