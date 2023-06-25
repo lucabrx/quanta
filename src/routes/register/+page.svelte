@@ -1,7 +1,7 @@
 <script lang="ts">
     import { superForm } from "sveltekit-superforms/client";
     import type { PageData } from "./$types";
-	  import Button from "$lib/components/Button.svelte";
+	import Button from "$components/ui/button/Button.svelte";
     export let data: PageData;
     
     const { form, errors, enhance } = superForm(data.form, {
@@ -49,7 +49,7 @@
             <span class="block text-red-600">{$errors.passwordConfirm}</span>
           {/if}
         </label>
-        <Button  type="submit" class="w-full pt-2">Register</Button>
+        <Button   type="submit" class="w-full pt-2">Register</Button>
 
         <div class="text-sm font-medium text-gray-500 w-full self-start pt-2" >
           Already have an account? <a href="/login" class="text-gray-900 font-medium hover:underline">Sign in</a>

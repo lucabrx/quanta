@@ -1,5 +1,6 @@
-<script>
-	import Button from "$lib/components/Button.svelte";
+<script lang="ts">
+	import Button from "$components/ui/button/Button.svelte";
+
 
 </script>
 
@@ -23,7 +24,7 @@
 			</p>
 		</div>
 		<div class="flex items-center justify-center gap-3">
-			<Button size="lg" variant="primary">Get Started</Button>
+			<Button size="lg" variant="default">Get Started</Button>
 			<Button size="lg" variant="secondary">Learn More</Button>
 		</div>
 	</div>

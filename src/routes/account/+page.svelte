@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Button from "$lib/components/Button.svelte";
 	import { Rocket } from "lucide-svelte";
 	import ProfileForm from "./ProfileForm.svelte";
 	import EmailForm from "./EmailForm.svelte";
 	import PasswordForm from "./PasswordForm.svelte";
+	import Button from "$components/ui/button/Button.svelte";
 
 </script>
 
