@@ -1,6 +1,7 @@
 create table public.profiles(
   id uuid unique references auth.users on delete cascade,
   full_name text,
+  email text,
   updated_at timestamp with time zone default now() not null,
   created_at timestamp with time zone default now() not null,
   primary key (id)
@@ -20,8 +21,8 @@ create or replace function public.handle_new_user()
   returns trigger
   as $$
 begin
-  insert into public.profiles(id, full_name)
-    values(new.id, new.raw_user_meta_data ->> 'full_name');
+  insert into public.profiles(id, full_name,email)
+    values(new.id, new.raw_user_meta_data ->> 'full_name', new.raw_user_meta_data ->> 'email');
   return new;
 end;
 $$

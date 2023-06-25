@@ -31,7 +31,10 @@ export const actions: Actions = {
       email: form.data.email,
       password: form.data.password,
       options: {
-        
+        data: {
+          full_name: form.data.full_name,
+          email: form.data.email,
+        }
       },
     });
 
