@@ -92,7 +92,7 @@ export let data: LayoutData
     </nav>
 
 
-<body class="w-full self-stretch flex-grow">
+<body class="w-full flex-grow">
 <slot />
 </body>
 

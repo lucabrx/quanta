@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from "$components/ui/button/Button.svelte";
-  import {MoreHorizontal } from "lucide-svelte"
+  import {MoreHorizontal, X } from "lucide-svelte"
  import {
     Table,
     TableBody,
@@ -9,11 +9,12 @@
     TableHeader,
     TableRow
   } from "$components/ui/table";
-	import { contacts } from "$lib/data";
 	import type { PageData } from "./$types";
 	import CreateContactModal from "$components/CreateContactModal.svelte";
   let createContactOpen = false;
   export let data: PageData;
+  let openMenu: boolean = false;
+  //TODO table ui needs improvement
 </script>
 
 <div class="py-20 container">
@@ -34,18 +35,33 @@
         </TableRow>
       </TableHeader>
       <TableBody>
-        {#each contacts as contact, _i (contact.id)}
+        {#each data.contacts as contact, _i (contact.id)}
           <TableRow>
-            <TableCell>{contact.name}</TableCell>
-            <TableCell>{contact.email}</TableCell>
-            <TableCell>{contact.phone}</TableCell>
-            <TableCell>{contact.company}</TableCell>
-            <TableCell>
-              <Button size="sm" variant="default" >
+            <TableCell>{contact.name ?? "--"}</TableCell>
+            <TableCell>{contact.email ?? "--"}</TableCell>
+            <TableCell>{contact.phone ?? "--"}</TableCell>
+            <TableCell>{contact.company ?? "--"}</TableCell>
+            <TableCell >
+              {#if openMenu}
+              <div class="">
+                <Button size="sm" variant="default" href="/contacts/{contact.id}" >
+                  Edit
+                </Button>
+                <Button size="sm">Delete</Button>
+                <Button on:click={() => openMenu = false} size="sm" variant="default" >
+                  <X class="h-4 w-4" />
+                </Button>
+              </div>
+              {:else} 
+              <Button on:click={() => openMenu = true} size="sm" variant="default" >
                 <MoreHorizontal class="h-4 w-4" />
               </Button>
+              {/if}
+              
             </TableCell>
+           
           </TableRow>
+         
         {/each}
       </TableBody>
     </Table>
