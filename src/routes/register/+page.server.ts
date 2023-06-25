@@ -1,7 +1,7 @@
 import type { Actions, PageServerLoad } from "./$types";
 import { setError, superValidate } from "sveltekit-superforms/server";
 import { fail, redirect } from "@sveltejs/kit";
-import { registerUserSchema } from "$lib/schemas";
+import { registerUserSchema } from "$lib/validator/schemas";
 
 //TODO throw error for same email from db
 export const load: PageServerLoad = async (event) => {

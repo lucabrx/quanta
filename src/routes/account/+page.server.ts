@@ -1,7 +1,7 @@
 import { error, redirect, type Actions, fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import { setError, superValidate } from "sveltekit-superforms/server";
-import { emailSchema, passwordSchema, profileSchema } from "$lib/schemas";
+import { emailSchema, passwordSchema, profileSchema } from "$lib/validator/schemas";
 
 //TODO when changing email it goes to new_email and not email property
 

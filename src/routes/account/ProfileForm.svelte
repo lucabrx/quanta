@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from "$components/ui/button/Button.svelte";
-	import type { ProfileSchema } from "$lib/schemas";
+	import type { ProfileSchema } from "$lib/validator/schemas";
 	import { User } from "lucide-svelte";
 	import { superForm } from "sveltekit-superforms/client";
 	import type { Validation } from "sveltekit-superforms/index";

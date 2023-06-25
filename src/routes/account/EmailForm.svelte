@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from "$components/ui/button/Button.svelte";
-	import type { EmailSchema } from "$lib/schemas";
+	import type { EmailSchema } from "$lib/validator/schemas";
 	import { Mail } from "lucide-svelte";
 	import { superForm } from "sveltekit-superforms/client";
 	import type { Validation } from "sveltekit-superforms/index";
