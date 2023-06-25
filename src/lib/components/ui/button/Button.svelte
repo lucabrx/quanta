@@ -13,12 +13,13 @@
 	export let type: HTMLButtonAttributes["type"] = undefined;
 	export let variant: VariantProps<typeof buttonVariants>["variant"] = "default";
 	export let size: VariantProps<typeof buttonVariants>["size"] = "default";
-
+	export let active: VariantProps<typeof buttonVariants>["active"] = false;
 	type Props = {
 		class?: string | null;
 		variant?: VariantProps<typeof buttonVariants>["variant"];
 		size?: VariantProps<typeof buttonVariants>["size"];
-	};
+		active?: VariantProps<typeof buttonVariants>["active"];
+		};
 
 	interface AnchorElement extends Props, HTMLAnchorAttributes {
 		href?: HTMLAnchorAttributes["href"];
@@ -37,7 +38,7 @@
 	this={href ? "a" : "button"}
 	type={href ? undefined : type}
 	{href}
-	class={cn(buttonVariants({ variant, size, className }))}
+	class={cn(buttonVariants({ variant, size,active, className }))}
 	{...$$restProps}
 	on:click
 	on:change
@@ -45,6 +46,7 @@
 	on:keyup
 	on:mouseenter
 	on:mouseleave
+	
 >
 	<slot />
 </svelte:element>

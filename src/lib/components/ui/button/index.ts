@@ -22,11 +22,16 @@ export const buttonVariants = cva(
 				default: "h-10 py-2 px-4",
 				sm: "h-9 px-3 rounded-md",
 				lg: "h-11 px-8 rounded-md"
+			},
+			active: {
+				true: "text-zinc-900 bg-zinc-300 ",
+				false: ""
 			}
 		},
 		defaultVariants: {
 			variant: "default",
-			size: "default"
+			size: "default",
+			active: false
 		}
 	}
 );

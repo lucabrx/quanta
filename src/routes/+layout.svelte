@@ -1,6 +1,7 @@
 <script lang="ts">
     import "../app.css"
     import "../app.postcss";
+    import { page } from "$app/stores";
 
     import { invalidate } from '$app/navigation'
     import { onMount } from 'svelte'
@@ -49,7 +50,7 @@ export let data: LayoutData
         <!-- Navigation links -->
         <div class="hidden md:flex justify-center items-center gap-4"> 
         {#each navigation as { label, href }}
-           <Button variant="link" {href}>{label}</Button> 
+           <Button variant="link" {href} active={$page.url.pathname === href}>{label}</Button> 
         {/each}
         </div>
         </div>
