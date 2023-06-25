@@ -7,7 +7,9 @@
 
   export let data: Validation<PasswordSchema>
 
-  const {enhance,errors,form} = superForm(data);
+  const {enhance,errors,form} = superForm(data, {
+    resetForm: true 
+  });
 </script>
 
 <section class="px-6">
@@ -19,18 +21,18 @@
     
     <form  method="POST" action="?/updatePassword" use:enhance
     class="mt-2 sm:mt-6 flex gap-2 justify-center items-start flex-col">
-      <label for="full_name" class="w-full sm:w-full flex flex-col">
+      <label for="password" class="w-full sm:w-full flex flex-col">
         <span>New Password</span>
-        <input type="password" name="full_name" bind:value={$form.password}
+        <input type="password" name="password" bind:value={$form.password}
         class="rounded-md py-1.5 px-4 bg-gray-300/30 focus:ring-2 focus:ring-gray-900 outline-none w-full"
         />
         {#if $errors.password}
         <span class="block text-red-600 text-sm">{$errors.password}</span>
       {/if}
       </label>
-      <label for="full_name" class="w-full  flex flex-col">
+      <label for="passwordConfirm" class="w-full  flex flex-col">
         <span>Confirm New Password</span>
-        <input type="password" name="full_name" bind:value={$form.passwordConfirm}
+        <input type="password" name="passwordConfirm" bind:value={$form.passwordConfirm}
         class="rounded-md py-1.5 px-4 bg-gray-300/30 focus:ring-2 focus:ring-gray-900 outline-none w-full "
         />
         {#if $errors.passwordConfirm}
