@@ -8,11 +8,14 @@ const config = {
 	theme: {
 		container: {
 			center: true,
-			padding: "2rem",
+			padding: {
+			  DEFAULT: "16px",
+			  xl: "32px"
+			},
 			screens: {
-				"2xl": "1400px"
+			xl: "1280px"
 			}
-		},
+		  },
 		extend: {
 			colors: {
 				border: "hsl(var(--border))",

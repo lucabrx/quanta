@@ -84,3 +84,4 @@ create policy "Users can update their own profiles."
 ### Client Side Supabase 
 - we are passing session from layout.server to layout so we have access from that in +layout.ts
 ![Alt text](markdown_data/client-side-supabase.png)
+
