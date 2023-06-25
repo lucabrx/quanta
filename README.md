@@ -85,3 +85,5 @@ create policy "Users can update their own profiles."
 - we are passing session from layout.server to layout so we have access from that in +layout.ts
 ![Alt text](markdown_data/client-side-supabase.png)
 
+## Stripe 
+- [here](https://stripe.com/docs/api)
