@@ -5,7 +5,10 @@ import { ENV } from "$lib/server/env";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "$lib/supabase-types";
 import type { z } from "zod";
-import type { registerUserSchema } from "$lib/schemas";
+import type { registerUserSchema } from "$lib/validator/schemas";
+import { faker } from "@faker-js/faker";
+import { supabaseAdmin } from "$lib/server/supabase-admin";
+
 
 export async function startSupabase() {
   const port = await detect(54322);
@@ -43,4 +46,24 @@ export async function createUser(user: CreateUser) {
     throw new Error("Error creating user");
   }
   return authData.user;
+}
+
+export async function createContact(user_id: string) {
+  const firstName = faker.name.firstName();
+  const lastName = faker.name.lastName();
+  const contact = {
+    name: `${firstName} ${lastName}`,
+    email: faker.internet.exampleEmail(firstName, lastName),
+    company: faker.company.name(),
+    phone: faker.phone.number(),
+    user_id,
+  };
+
+  const { error, data } = await supabaseAdmin.from("contacts").insert(contact);
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
 }
