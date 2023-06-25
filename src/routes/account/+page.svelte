@@ -4,10 +4,12 @@
 	import EmailForm from "./EmailForm.svelte";
 	import PasswordForm from "./PasswordForm.svelte";
 	import Button from "$components/ui/button/Button.svelte";
+	import type { PageData } from "./$types";
 
+  export let data: PageData;
 </script>
 
-<div class="py-20 ">
+<div class="py-8 ">
     <!-- Page header -->
     <div class="mx-auto max-w-xl flex  flex-col items-center pb-10 text-center">
         <h2 class="mt-2 text-3xl font-bold text-gray-900">Account Settings</h2>
@@ -30,8 +32,8 @@
               <Button class="mt-4">Manage Billing</Button>
             </div>
           </section>
-          <ProfileForm />
-          <EmailForm />
-          <PasswordForm />
+          <ProfileForm data={data.profileForm} />
+          <EmailForm data={data.emailForm} />
+          <PasswordForm data={data.passwordForm} />
       </div>
 </div>

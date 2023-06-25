@@ -17,11 +17,8 @@ export const actions: Actions = {
   default: async (event) => {
     const form = await superValidate(event, registerUserSchema);
 
-    if (!form.valid) {
-      return fail(400, {
-        form,
-      });
-    }
+    if (!form.valid) return fail(400, { form });
+    
 
     if (form.data.password !== form.data.passwordConfirm) {
       return setError(form, "passwordConfirm", "Passwords do not match");
@@ -32,15 +29,13 @@ export const actions: Actions = {
       password: form.data.password,
       options: {
         data: {
-          full_name: form.data.full_name,
+          full_name: form.data.full_name ?? "",
           email: form.data.email,
         }
       },
     });
 
-    if (authError) {
-      return setError(form, "email", "An error occurred while registering.");
-    }
+    if (authError) return setError(form, "email", "An error occurred while registering.");
 
     return {
       form,
