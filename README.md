@@ -99,3 +99,14 @@ stripe listen --forward-to localhost:5173/api/stripe/webhooks
 - instal stripe-event-types and add to tscofing and add webhook endpoint
 - https://github.com/kgajera/stripe-event-types
 - it makes it easier to work with stripe events
+
+- creating a test product via stripe cli 
+- we can create product trough stripe cli (check webook create/update/delete to see how it works), after that product should be in db
+- PS server and webhook should be running
+```bash
+stripe products create --name="Nikies" --description="fast ones" --active="true" --type="service"
+```
+- deleting a product 
+```bash
+stripe products delete <product_id>
+```
