@@ -87,3 +87,15 @@ create policy "Users can update their own profiles."
 
 ## Stripe 
 - [here](https://stripe.com/docs/api)
+
+- Login to Stripe via the CLI
+```bash
+stripe login
+```
+- foward webhooks to localhost and it gives u stripe signing secret
+```bash
+stripe listen --forward-to localhost:5173/api/stripe/webhooks
+```
+- instal stripe-event-types and add to tscofing and add webhook endpoint
+- https://github.com/kgajera/stripe-event-types
+- it makes it easier to work with stripe events

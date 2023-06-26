@@ -15,5 +15,5 @@ export const ENV = {
   SUPABASE_SERVICE_ROLE_KEY: getEnvironmentVariable("SUPABASE_SERVICE_ROLE_KEY"),
   SUPABASE_DB_URL: getEnvironmentVariable("SUPABASE_DB_URL"),
   STRIPE_SECRET_KEY: getEnvironmentVariable("STRIPE_SECRET_KEY"),
-
+  STRIPE_SIGNING_SECRET: getEnvironmentVariable("STRIPE_SIGNING_SECRET"),
 };

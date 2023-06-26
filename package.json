@@ -13,7 +13,8 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"gen:types": "pnpx supabase gen types typescript --local > src/lib/supabase-types.ts && prettier --write src/lib/supabase-types.ts",
-		"seed": "tsx --tsconfig scripts/tsconfig.json scripts/seed.ts"
+		"seed": "tsx --tsconfig scripts/tsconfig.json scripts/seed.ts",
+		"stripe:webhooks": "stripe listen --forward-to localhost:5173/api/stripe/webhook"
 	},
 	"devDependencies": {
 		"@faker-js/faker": "^8.0.2",
@@ -35,6 +36,7 @@
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"stripe-event-types": "^2.3.0",
 		"supabase": "^1.64.8",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
@@ -57,7 +59,7 @@
 		"clsx": "^1.2.1",
 		"dotenv": "^16.0.3",
 		"lucide-svelte": "^0.241.0",
-		"stripe": "^12.10.0",
+		"stripe": "12.4.0",
 		"svelte-french-toast": "1.0.4-beta.0",
 		"tailwind-merge": "^1.13.2",
 		"tailwindcss-animate": "^1.0.6"
