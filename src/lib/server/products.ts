@@ -1,5 +1,5 @@
 // for all product related function and logic
-import { stripeProductSchema } from "$lib/validator/products";
+import { stripeProductSchema } from "$lib/validator/stripe";
 import type Stripe from "stripe";
 import { supabaseAdmin } from "./supabase-admin";
 
