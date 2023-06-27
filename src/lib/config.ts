@@ -38,6 +38,7 @@ export const productConfig: ProductConfig = {
     },
   };
 
+  // Dummy product for free plan (no stripe product)
   export const freePrice = {
     id: "",
     unit_amount: 0,
