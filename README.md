@@ -126,3 +126,6 @@ stripe prices update price_1NNbOaLiMuQR7qF6TBab877W --lookup-key pro_yearly
 - useful to test subscription and etc
 - how to cancel after trial period
 [here](https://stripe.com/docs/billing/testing/test-clocks)
+
+### Prevent multiple trials
+- we do it with checking if user had subscription before in db 
