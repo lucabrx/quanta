@@ -59,6 +59,7 @@
 		"clsx": "^1.2.1",
 		"dotenv": "^16.0.3",
 		"lucide-svelte": "^0.241.0",
+		"radix-svelte": "^0.8.0",
 		"stripe": "12.4.0",
 		"svelte-french-toast": "1.0.4-beta.0",
 		"tailwind-merge": "^1.13.2",
