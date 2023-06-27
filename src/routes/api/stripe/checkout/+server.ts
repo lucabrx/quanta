@@ -36,6 +36,7 @@ export const GET: RequestHandler = async (event) => {
               metadata: {
                 user_id: session.user.id,
               },
+              trial_period_days: 14,
             },
         })
 
