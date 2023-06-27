@@ -110,3 +110,14 @@ stripe products create --name="Nikies" --description="fast ones" --active="true"
 ```bash
 stripe products delete <product_id>
 ```
+- How product and prices works in stripe [here](https://stripe.com/docs/products-prices/how-products-and-prices-work)
+
+### Stripe CLI (on stripe webpage)
+- to get products in stripe cli 
+```bash
+stripe prices list
+```
+- how to setup lookup-key
+```bash
+stripe prices update price_1NNbOaLiMuQR7qF6TBab877W --lookup-key pro_yearly 
+```
