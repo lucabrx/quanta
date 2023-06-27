@@ -1,6 +1,6 @@
-export const lookupKeys = ["plus_monthly", "plus_yearly", "pro_monthly", "pro_yearly"];
+export const lookupKeys = ["plus_monthly", "plus_yearly", "pro_monthly", "pro_yearly"] as const;
 
-export const productNames = ["Free", "Plus", "Pro"];
+export const productNames = ["Free", "Plus", "Pro"] as const;
 
 type ProductNames = (typeof productNames)[number];
 type ProductConfig = Record<ProductNames, { features: string[]; call_to_action: string }>;
