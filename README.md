@@ -121,3 +121,8 @@ stripe prices list
 ```bash
 stripe prices update price_1NNbOaLiMuQR7qF6TBab877W --lookup-key pro_yearly 
 ```
+### Stripe Test clooks
+- more about test clooks (trial periods)
+- useful to test subscription and etc
+- how to cancel after trial period
+[here](https://stripe.com/docs/billing/testing/test-clocks)
