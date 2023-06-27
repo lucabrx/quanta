@@ -38,6 +38,7 @@ export const GET: RequestHandler = async (event) => {
               },
               trial_period_days: 14,
             },
+            payment_method_collection: "if_required"
         })
 
         if (!checkoutSession.url) throw new Error("Error creating checkout session");
