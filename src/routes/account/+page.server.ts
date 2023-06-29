@@ -2,6 +2,7 @@ import { error, redirect, type Actions, fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 import { setError, superValidate } from "sveltekit-superforms/server";
 import { emailSchema, passwordSchema, profileSchema } from "$lib/validator/schemas";
+import { getSubscriptionTier } from "$lib/server/subscriptions";
 
 //TODO when changing email it goes to new_email and not email property
 
@@ -34,6 +35,7 @@ export const load: PageServerLoad = async (event) => {
         passwordForm: superValidate(passwordSchema, {
           id: "password",
         }),
+        tier: getSubscriptionTier(session.user.id),
       };
    
 }
