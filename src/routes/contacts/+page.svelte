@@ -12,24 +12,37 @@
 	import type { PageData } from "./$types";
 	import CreateContactModal from "$components/CreateContactModal.svelte";
 	import DeleteContactModal from "$components/DeleteContactModal.svelte";
+	import { hasReachedMaxContacts } from "$lib/utils";
+	import UpgradePlanModal from "$components/UpgradePlanModal.svelte";
   let createContactOpen = false;
   export let data: PageData;
   let openMenu: boolean = false;
   let deleteContactOpen = false;
   let contactToDelete: string;
+  let upgradeModalOpen = false;
 
   function handleContactDelete(contact_id: string) {
     contactToDelete = contact_id;
     deleteContactOpen = true;
   }
+  $: ({contactsCount,tier} = data)
+  $: reachedMaxContacts = hasReachedMaxContacts(tier, contactsCount)
   //TODO table ui needs improvement
+
+  function handleContactCreate() {
+    if (reachedMaxContacts) {
+      upgradeModalOpen = true;
+      return;
+    }
+    createContactOpen = true;
+  }
 </script>
 
 <div class="py-20 container">
     <!-- Contacts Page Header -->
     <div class="flex w-full items-center justify-between pb-6">
       <h1 class="text-3xl">Contacts</h1>
-      <Button size="sm" on:click={() => createContactOpen = true}>New Contact</Button>
+      <Button size="sm" on:click={handleContactCreate}>New Contact</Button>
     </div>
     <!-- Contacts Table -->
     <Table shadow divClass="min-h-full">
@@ -78,3 +91,7 @@
 
 <CreateContactModal bind:open={createContactOpen} data={data.createContactForm} />
 <DeleteContactModal bind:open={deleteContactOpen} contactId={contactToDelete} data={data.deleteContactForm} />
+<UpgradePlanModal
+  bind:open={upgradeModalOpen}
+  {tier}
+  message="You have reached the max contacts for your plan. Upgrade to add more contacts." />

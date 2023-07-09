@@ -3,6 +3,9 @@ import type {  Actions, PageServerLoad } from "./$types";
 import {  setError, superValidate } from "sveltekit-superforms/server";
 import { createContactSchema, deleteContactSchema } from "$lib/validator/contats";
 import { supabaseAdmin } from "$lib/server/supabase-admin";
+import { getContactsCount } from "$lib/server/contacts";
+import { getSubscriptionTier } from "$lib/server/subscriptions";
+import { hasReachedMaxContacts } from "$lib/utils";
 
 export const load: PageServerLoad = async (event) => {
     const session = await event.locals.getSession();
@@ -23,6 +26,8 @@ export const load: PageServerLoad = async (event) => {
       deleteContactForm: superValidate(deleteContactSchema, {
         id: "delete",
       }),
+      tier: getSubscriptionTier(session.user.id),
+      contactsCount: getContactsCount(session.user.id),
     };
   };
   
@@ -31,8 +36,18 @@ createContact : async (event) => {
   const session = await event.locals.getSession();
   if(!session) throw error(401, "unauthorized");
 
-  const createContactForm = await superValidate(event,createContactSchema);
-  console.log(createContactForm);
+
+  const [tier, count, createContactForm] = await Promise.all([
+    getSubscriptionTier(session.user.id),
+    getContactsCount(session.user.id),
+    superValidate(event, createContactSchema, {
+      id: "create",
+    }),
+  ]);
+
+  if (hasReachedMaxContacts(tier, count)) {
+    throw error(403, "You have reached the max number of contacts for your tier. Please upgrade.");
+  }
 
   if(!createContactForm.valid) return fail(400, {createContactForm});
 
@@ -71,4 +86,5 @@ deleteContact: async (event) => {
     deleteContactForm,
   };
 },
+
 }
