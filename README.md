@@ -190,3 +190,7 @@ PUBLIC_SUPABASE_URL="https://<thiskgjfgqdjoleei>.supabase.co"
 pnpx supabase db push
 
 ```
+
+## stripe 
+
+- after deploying to vercel we need to add stripe webhook endpoint to stripe
