@@ -4,9 +4,7 @@
 
 <section class="relative isolate md:pt-14 pt-8">
 	<div class="absolute inset-x-0 -top-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-		<div
-			class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] element"
-		/>
+		<div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] element"></div>
 	</div>
 	<div class="md:py-20 md:mt-20 z-[100] px-4 lg:px-8">
 		<div class="mx-auto mb-4 md:mb-10 max-w-3xl text-center">
