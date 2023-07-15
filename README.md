@@ -170,3 +170,23 @@ stripe prices update price_1NNbOaLiMuQR7qF6TBab877W --lookup-key pro_yearly
 ### Prevent multiple trials
 
 - we do it with checking if user had subscription before in db
+
+
+## Github Actions AND CI/CD Pipeline
+
+### supabase 
+
+- add supabase project and login with pnpx supabase login
+- after login export supabase password and ref trough terminal
+
+```bash
+ export SUPABASE_DB_PASSWORD=<YOUR_DB_PASSWORD>
+pnpx supabase link --project-ref <YOUR_PROJECT_REF>
+
+// this is project ref
+PUBLIC_SUPABASE_URL="https://<thiskgjfgqdjoleei>.supabase.co"
+
+
+pnpx supabase db push
+
+```
