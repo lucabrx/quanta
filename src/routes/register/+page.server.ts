@@ -1,44 +1,43 @@
-import type { Actions, PageServerLoad } from "./$types";
-import { setError, superValidate } from "sveltekit-superforms/server";
-import { fail, redirect } from "@sveltejs/kit";
-import { registerUserSchema } from "$lib/validator/schemas";
+import type { Actions, PageServerLoad } from './$types';
+import { setError, superValidate } from 'sveltekit-superforms/server';
+import { fail, redirect } from '@sveltejs/kit';
+import { registerUserSchema } from '$lib/validator/schemas';
 
 //TODO throw error for same email from db
 export const load: PageServerLoad = async (event) => {
-  const session = await event.locals.getSession();
-  if (session) throw redirect(302, "/");
+	const session = await event.locals.getSession();
+	if (session) throw redirect(302, '/');
 
-  return {
-    form: superValidate(registerUserSchema),
-  };
+	return {
+		form: superValidate(registerUserSchema)
+	};
 };
 
 export const actions: Actions = {
-  default: async (event) => {
-    const form = await superValidate(event, registerUserSchema);
+	default: async (event) => {
+		const form = await superValidate(event, registerUserSchema);
 
-    if (!form.valid) return fail(400, { form });
-    
+		if (!form.valid) return fail(400, { form });
 
-    if (form.data.password !== form.data.passwordConfirm) {
-      return setError(form, "passwordConfirm", "Passwords do not match");
-    }
+		if (form.data.password !== form.data.passwordConfirm) {
+			return setError(form, 'passwordConfirm', 'Passwords do not match');
+		}
 
-    const { error: authError } = await event.locals.supabase.auth.signUp({
-      email: form.data.email,
-      password: form.data.password,
-      options: {
-        data: {
-          full_name: form.data.full_name ?? "",
-          email: form.data.email,
-        }
-      },
-    });
+		const { error: authError } = await event.locals.supabase.auth.signUp({
+			email: form.data.email,
+			password: form.data.password,
+			options: {
+				data: {
+					full_name: form.data.full_name ?? '',
+					email: form.data.email
+				}
+			}
+		});
 
-    if (authError) return setError(form, "email", "An error occurred while registering.");
+		if (authError) return setError(form, 'email', 'An error occurred while registering.');
 
-    return {
-      form,
-    };
-  },
+		return {
+			form
+		};
+	}
 };

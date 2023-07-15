@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Tabs as TabsPrimitive } from "radix-svelte";
-	import { cn } from "$lib/utils";
+	import { Tabs as TabsPrimitive } from 'radix-svelte';
+	import { cn } from '$lib/utils';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
@@ -8,7 +8,7 @@
 
 <TabsPrimitive.List
 	class={cn(
-		"inline-flex h-10 items-center justify-center rounded-md bg-card p-1 text-muted-foreground",
+		'inline-flex h-10 items-center justify-center rounded-md bg-card p-1 text-muted-foreground',
 		className
 	)}
 	{...$$restProps}

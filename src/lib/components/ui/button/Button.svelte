@@ -1,44 +1,41 @@
 <script lang="ts">
-	import type { VariantProps } from "class-variance-authority";
-	import type {
-		HTMLAnchorAttributes,
-		HTMLButtonAttributes
-	} from "svelte/elements";
-	import { cn } from "$lib/utils";
-	import { buttonVariants } from ".";
+	import type { VariantProps } from 'class-variance-authority';
+	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+	import { cn } from '$lib/utils';
+	import { buttonVariants } from '.';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
-	export let href: HTMLAnchorAttributes["href"] = undefined;
-	export let type: HTMLButtonAttributes["type"] = undefined;
-	export let variant: VariantProps<typeof buttonVariants>["variant"] = "default";
-	export let size: VariantProps<typeof buttonVariants>["size"] = "default";
-	export let active: VariantProps<typeof buttonVariants>["active"] = false;
+	export let href: HTMLAnchorAttributes['href'] = undefined;
+	export let type: HTMLButtonAttributes['type'] = undefined;
+	export let variant: VariantProps<typeof buttonVariants>['variant'] = 'default';
+	export let size: VariantProps<typeof buttonVariants>['size'] = 'default';
+	export let active: VariantProps<typeof buttonVariants>['active'] = false;
 	type Props = {
 		class?: string | null;
-		variant?: VariantProps<typeof buttonVariants>["variant"];
-		size?: VariantProps<typeof buttonVariants>["size"];
-		active?: VariantProps<typeof buttonVariants>["active"];
-		};
+		variant?: VariantProps<typeof buttonVariants>['variant'];
+		size?: VariantProps<typeof buttonVariants>['size'];
+		active?: VariantProps<typeof buttonVariants>['active'];
+	};
 
 	interface AnchorElement extends Props, HTMLAnchorAttributes {
-		href?: HTMLAnchorAttributes["href"];
+		href?: HTMLAnchorAttributes['href'];
 		type?: never;
 	}
 
 	interface ButtonElement extends Props, HTMLButtonAttributes {
-		type?: HTMLButtonAttributes["type"];
+		type?: HTMLButtonAttributes['type'];
 		href?: never;
 	}
-
+	// @eslint-ignore-next-line
 	type $$Props = AnchorElement | ButtonElement;
 </script>
 
 <svelte:element
-	this={href ? "a" : "button"}
+	this={href ? 'a' : 'button'}
 	type={href ? undefined : type}
 	{href}
-	class={cn(buttonVariants({ variant, size,active, className }))}
+	class={cn(buttonVariants({ variant, size, active, className }))}
 	{...$$restProps}
 	on:click
 	on:change
@@ -46,7 +43,6 @@
 	on:keyup
 	on:mouseenter
 	on:mouseleave
-	
 >
 	<slot />
 </svelte:element>

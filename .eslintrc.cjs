@@ -6,6 +6,10 @@ module.exports = {
 		'plugin:svelte/recommended',
 		'prettier'
 	],
+	rules: {
+		'@typescript-eslint/no-unused-vars': 'off',
+		'@typescript-eslint/no-non-null-assertion': 'off'
+	},
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
 	parserOptions: {
